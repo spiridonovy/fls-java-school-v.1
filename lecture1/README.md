@@ -13,19 +13,26 @@
 9. `git pull` забирает последние изменения из репозитория
 
 ## Как выполнять задания
-1. Клонируем основной репозиторий `git clone https://github.com/spiridonovy/fls-java-school-v.1.git` (выполняется 1 раз)
-2. Переходим на ветку `master` `git checkout master`
-3. Забираем последние изменения с центрального репозитория `git pull`
-4. Переходим в директорию текущей лекции
-5. Создаем новый GIT бранч и переходим в него: `git checkout -b <branch_name>` (С каким именем создавать branch указано ниже)
-6. Делаем изменения
-7. Добавляем изменения в GIT индекс: `git add .`
-8. Фиксируем изменения в локальный репозиторий: `git commit -m '<commit message>'`
-9. Отправляем коммит в центральный репозиторий: `git push origin <your_branch_name>`
-10. Переходим на Github.com и создаем новый Pull Request
+#### Пукнты 1-6 выполняются 1 раз
+1. Создать Github-account
+2. Сделать Fork основного репозитория Java-школы
+3. Клонировать только что форкнутый репозиторий в локальную директорию на компьютере:
+> git clone https://github.com/<YOUR_USERNAME>/fls-java-school-v.1.git
+4. Перейти в локальную директорию клонированного репозитория
+5. Добавить референс на основной репозиторий Java-школы:
+> git remote add upstream https://github.com/spiridonovy/fls-java-school-v.1.git
+6. Командой `git remote -v` проверить, что вы имеете 2 референса: origin и upstream
+7. Выполнить команду `git checkout master`, чтобы перейти на master-ветку вашего форкнутого репозитория
+8. Выполнить команду `git fetch upstream`, чтобы подтянуть все изменения с центрального репозитория Java-школы в ваш форкнутый репозиторий
+9. Создайте новый GIT-branch (формат имени создаваемого бранча указан ниже)
+10. Делаем необходимые изменения в соответствии с домашним заданием
+11. Добавляем изменения в GIT индекс: `git add .`
+12. Фиксируем изменения в локальный репозиторий: `git commit -m '<commit message>'`
+13. Отправляем коммит в центральный репозиторий: `git push origin <your_branch_name>`
+14. Переходим на Github.com и создаем новый Pull Request
 
 ## Если git push не проходит, то нужно выполнить команду:
-> git remote set-url origin git@github.com:spiridonovy/fls-java-school-v.1.git и только затем git push 
+> git remote set-url origin git@github.com:<YOUR_USERNAME>/fls-java-school-v.1.git и только затем git push 
 
 ## Какое имя давать для ветки в GIT
 > fls-lecture-<номер_лекции>-<github_username>
