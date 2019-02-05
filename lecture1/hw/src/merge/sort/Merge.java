@@ -2,17 +2,14 @@ package merge.sort;
 
 public class Merge {
     public static void Merge(int[] result, int[] left, int[] right) {
-        int i1 = 0;
-        int i2 = 0;
+        int leftInd = 0,  rightInd = 0;     //indexes for answer array
 
-        for (int i = 0; i < result.length; i++) {
-            if (i2 >= right.length || (i1 < left.length && left[i1] <= right[i2])) {
-                result[i] = left[i1];
-                i1++;
-            } else {
-                result[i] = right[i2];
-                i2++;
-            }
+        for (int i = 0; i < result.length; i++){
+            //the passage of the left and right array with alternate comparison
+            if (rightInd >= right.length || (leftInd < left.length && left[leftInd] <= right[rightInd]))
+                result[i] = left[leftInd++];
+            else
+                result[i] = right[rightInd++];
         }
     }
 }
