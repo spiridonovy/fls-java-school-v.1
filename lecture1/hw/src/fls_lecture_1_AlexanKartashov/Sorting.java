@@ -2,6 +2,7 @@ package fls_lecture_1_AlexanKartashov;
 
 public class Sorting
 {
+    // Shaker or Cocktail sorting of array (min element to right, max element to left)
     public static MyArray ShakerSort(MyArray array)
     {
       for (int i=0;i<(array.array.length/2);i++)
