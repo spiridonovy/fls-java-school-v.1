@@ -22,3 +22,8 @@
     2 - 1
     3 - 2
     4 - 3
+
+## Полезные ссылки
+
+1. [Maven](http://www.apache-maven.ru/) - maven официальный сайт
+2. [Maven Indexed artifacts](https://mvnrepository.com/) - тут можно искать нужные библиотеки, которые находятся в центральном Maven репозитории
