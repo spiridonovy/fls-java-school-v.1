@@ -8,7 +8,7 @@
     <artifactId>fls-java-school</artifactId>
     <version>1.0-SNAPSHOT</version>
     <properties>
-        <jdk.version>1.6</jdk.version>
+        <jdk.version>11</jdk.version>
         <skipTests>true</skipTests>
     </properties>
     <build>
