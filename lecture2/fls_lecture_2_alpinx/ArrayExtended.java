@@ -58,11 +58,21 @@ public class ArrayExtended {
     }
 
     public int getMin() {
-        return this.mergeSort().getArray()[0];
+        if(array.length<1){return Integer.MIN_VALUE;}
+        int min = array[0];
+        for (int i = 1; i < array.length-1; i++) {
+            min=Integer.min(min,array[i]);
+        }
+        return min;
     }
 
     public int getMax() {
-        return this.mergeSort().getArray()[array.length - 1];
+        if(array.length<1){return Integer.MAX_VALUE;}
+        int max = array[0];
+        for (int i = 1; i < array.length-1; i++) {
+            max=Integer.max(max,array[i]);
+        }
+        return max;
     }
 
     public boolean isOdd(int number) {
