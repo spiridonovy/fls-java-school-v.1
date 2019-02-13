@@ -1,17 +1,25 @@
-package lecture2;
-
-import java.sql.SQLOutput;
 import java.util.Arrays;
 
 public class Massif {
     public static int max(int[] input) {
-        return Arrays.stream(input).max().getAsInt();
+        int max = input[0];
+        for (int x: input)
+            if (x > max)
+                max = x;
+        return max;
     }
     public static int min(int[] input) {
-        return Arrays.stream(input).min().getAsInt();
+        int min = input[0];
+        for (int x: input)
+            if (x < min)
+                min = x;
+        return min;
     }
     public static int sum(int[] input) {
-        return Arrays.stream(input).sum();
+        int s = 0;
+        for (int x: input)
+            s = s + x;
+        return s;
     }
     public static boolean search(int[] input, int[] tmp) {
         int counter = 0, i = 0, j = 0;
@@ -24,12 +32,12 @@ public class Massif {
                 if (counter == tmp.length){
                     return true;
                 }
-             }
-             else {
-                 counter = 0;
-                 i++;
-                 j = 0;
-             }
+            }
+            else {
+                counter = 0;
+                i++;
+                j = 0;
+            }
 
         }
 

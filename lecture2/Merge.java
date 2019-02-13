@@ -1,5 +1,3 @@
-package lecture2;
-
 public class Merge {
     public static void merge(int[] result, int[] left, int[] right) {
         int leftInd = 0,  rightInd = 0;     //indexes for answer array

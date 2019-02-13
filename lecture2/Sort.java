@@ -1,16 +1,13 @@
-package lecture2;
-
-
 public class Sort {
     public static void msort(int input[]){
         if (input.length <= 1) return;  //void check
-                                        //dividing an array into two parts
+        //dividing an array into two parts
         int [] left_half = left(input);
         int [] right_half = right(input);
-                                        //recursively sort each of the parts
+        //recursively sort each of the parts
         msort(left_half);
         msort(right_half);
-                                        //
+        //
         Merge.merge(input, left_half, right_half);
 
     }
