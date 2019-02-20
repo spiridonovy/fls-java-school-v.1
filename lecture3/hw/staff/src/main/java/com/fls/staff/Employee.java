@@ -6,8 +6,10 @@ public abstract class Employee {
 
     protected String name;
 
+    // Отработанное время
     protected int worktime;
 
+    // Оплата за работу
     protected int payment;
 
     public Employee() {
@@ -56,7 +58,9 @@ public abstract class Employee {
         return payment;
     }
 
+    // Подсчет оплаты за работу
     public abstract void calculatePayment();
 
+    // Вывод информации о работнике
     public abstract void showInfo();
 }

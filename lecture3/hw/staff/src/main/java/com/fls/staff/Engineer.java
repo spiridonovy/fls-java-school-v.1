@@ -2,12 +2,15 @@ package com.fls.staff;
 
 public abstract class Engineer extends Employee implements IProjectPayment, IWorktimePayment {
 
+    // Плата за час
     protected int rate;
 
+    // Бюджет проекта
     protected int budget;
 
     protected String project;
 
+    // Вклад в проект
     protected double contribution;
 
     public Engineer() {
