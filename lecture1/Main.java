@@ -1,35 +1,23 @@
-package com.company;
-
-import java.util.Arrays;
-
 public class Main {
 
-    public static void main(String[] args) {
-        int[] unsortedArray = {21, 14, 43, 18, 37, 56, 19, 13};
-        System.out.println(Arrays.toString(unsortedArray));
-        choiceSort(unsortedArray);
-    }
-    //Сортировка Выбором
-    public static void choiceSort(int[] arrayToSort) {
+    public static void main (String[] args){
+        Cat cat = new Cat();
+        System.out.println("object cat was created");
+        System.out.println("Cat weight - " + cat.getWeight());
+        cat.setWeight(3);
+        System.out.print("Cat say - ");cat.voice();
+        System.out.println("Cat have - " + cat.getCountLives() + " lives=)");
+        System.out.println("Cat weight - " + cat.getWeight());
 
-        //проходим по массиву
-        //найти минмимальный массив
-        //меняем местами первый и минимальный элемент
+        System.out.println("");
 
-        //повторяем пока не пройдем по всему массиву
-        int indexMin;
-        for (int index = 0; index < arrayToSort.length - 1; index++){
-            indexMin = index;
-            for (int indexToScan = index; indexToScan < arrayToSort.length; indexToScan++) {
-                if (arrayToSort[indexMin] > arrayToSort[indexToScan]) {
-                    indexMin = indexToScan;
-                }
-            }   /*нахождение минимального элемента*/
+        Dog dog = new Dog();
+        System.out.println("object dog was created");
+        System.out.println("Dog weight - " + dog.getWeight());
+        dog.setWeight(3);
+        System.out.print("Dog say - ");dog.voice();
+        System.out.println("Dog have - " + dog.getCountLives() + " lives=)");
+        System.out.println("Dog weight - " + dog.getWeight());
 
-            int temp = arrayToSort[index];
-            arrayToSort[index] = arrayToSort[indexMin];
-            arrayToSort[indexMin] = temp;
-        }
-        System.out.println(Arrays.toString(arrayToSort));
     }
 }
