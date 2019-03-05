@@ -77,7 +77,7 @@ public class Calculator {
         return division;
     }
 
-    static double calculate(String operation, String[] nums){
+    public static double calculate(String operation, String[] nums){
         double result = 0;
         double[] array = makeDoubleArray(nums);
         try {
