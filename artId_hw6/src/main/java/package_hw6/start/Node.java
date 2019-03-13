@@ -1,12 +1,12 @@
 package package_hw6.start;
 
-public class NodeQ<Type> {
+public class Node<Type> {
     private Type unit;
-    private NodeQ previous;
-    private NodeQ next;
+    private Node<Type> previous;
+    private Node<Type> next;
     private int priority;
 
-    public NodeQ(Type unit, int priority, NodeQ previous, NodeQ next){
+    public Node(Type unit, int priority, Node<Type> previous, Node<Type> next){
         this.unit = unit;
         this.previous = previous;
         this.next = next;
@@ -17,15 +17,23 @@ public class NodeQ<Type> {
         return unit;
     }
 
-    public NodeQ getNext() {
+    public Node<Type> getNext() {
         return next;
     }
 
-    public NodeQ getPrevious(){
+    public Node<Type> getPrevious(){
         return previous;
     }
 
     public int getPriority(){
         return priority;
+    }
+
+    public void setNext(Node<Type> next){
+        this.next = next;
+    }
+
+    public void setPrevious(Node<Type> previous){
+        this.previous = previous;
     }
 }
