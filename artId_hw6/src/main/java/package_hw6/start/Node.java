@@ -36,4 +36,5 @@ public class Node<Type> {
     public void setPrevious(Node<Type> previous){
         this.previous = previous;
     }
+    
 }

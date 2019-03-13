@@ -17,6 +17,5 @@ public class Start {
 		while (deque.size() > 0){
 			System.out.println(deque.getLast());
 		}
-
 	}
 }
