@@ -87,6 +87,7 @@ public class PriorityDeque<Type> extends PriorityQueue<Type> {
         nextNode.setPrevious(newNode);
         nextNode.getPrevious().setNext(newNode);
 
+
     }
 
     public int size() {
