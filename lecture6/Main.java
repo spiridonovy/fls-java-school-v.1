@@ -29,5 +29,13 @@ public class Main {
         for (Iterator it = myMap2.iterator(); it.hasNext(); ) {
             System.out.println(it.next() );
         }
+
+        System.out.println(myMap.keySet());
+        myMap.remove("Key2");
+        System.out.println(myMap.keySet());
+        myMap.clear();
+        myMap.put(55,"45");
+        System.out.println(myMap.keySet());
+
     }
 }

@@ -1,5 +1,8 @@
 package MyCollection1;
 
+import jdk.jshell.spi.ExecutionControl;
+import jdk.jshell.spi.ExecutionControl.NotImplementedException;
+
 import java.util.*;
 
 public class MyMap<K, V> implements Map {
@@ -42,7 +45,7 @@ public class MyMap<K, V> implements Map {
     }
 
     private class MyMapIterator implements Iterator<K> {
-        private int index = -1;
+        private int index;
 
         MyMapIterator() {
             index = -1;
@@ -70,7 +73,7 @@ public class MyMap<K, V> implements Map {
 
     public MyMap() {
         map = new Entry[10];
-        size = -1;
+        size = 0;
     }
 
     public MyMap(Map<K, V> fromMap) {
@@ -85,7 +88,7 @@ public class MyMap<K, V> implements Map {
             map = f.toArray(new Entry[fromMap.size()+1]);
             size = fromMap.size();
         } catch (IllegalArgumentException e) {
-            System.out.println("Initial capacity is lower than 0");
+            System.out.println("Argument Map is empty!");
         }
     }
 
@@ -97,12 +100,12 @@ public class MyMap<K, V> implements Map {
 
     @Override
     public boolean isEmpty() {
-        return size <= 0;
+        return size == 0;
     }
 
     @Override
     public boolean containsKey(Object key) {
-        if (size == -1)
+        if (size == 0)
             return false;
         var set = this.keySet();
         return set.contains(key);
@@ -132,13 +135,16 @@ public class MyMap<K, V> implements Map {
 
     @Override
     public Object put(Object key, Object value) {
-
+        if (size == 0){
+            map[size++]= new Entry(key, value);
+            return true;
+        }
         if (size + 1 <= map.length) {
             if (this.containsKey(key)) {
                 return false;
             } else {
-                map[size + 1] = new Entry(key, value);
-                size = keySet().size();
+                map[size++] = new Entry(key, value);
+                //size = keySet().size()+1;
                 return true;
             }
         } else {
@@ -149,18 +155,43 @@ public class MyMap<K, V> implements Map {
     }
 
     @Override
-    public Object remove(Object key) {
-        return null;
+    public Object remove(Object key)  {
+        try {
+            var index=0;
+            for (var entry : map) {
+                if(entry==null)
+                    continue;
+                if(entry.getKey()==key){
+                    Entry<K, V>[] newNode = new Entry[size];
+                    int numMoved = size - index ;
+                    if (numMoved > 0)
+                        System.arraycopy(map, index + 1, map, index, numMoved);
+                    map[--size] = null;
+                    return true;
+                }
+                index++;
+            }
+            throw new NoSuchElementException();
+        }catch (NoSuchElementException e){
+            System.out.println("Element did not found!");
+        }
+        return false;
     }
 
     @Override
     public void putAll(Map m) {
-
+        try {
+            throw new NotImplementedException("Method putAll not implemented");
+        } catch (NotImplementedException e) {
+            System.out.println("Method putAll not implemented");
+        }
     }
+
 
     @Override
     public void clear() {
-
+        size=0;
+        map = new Entry[10];
     }
 
     @Override
@@ -168,19 +199,23 @@ public class MyMap<K, V> implements Map {
         var keySet = new HashSet<K>();
         for (Iterator<K> it = this.iterator(); it.hasNext(); ) {
             keySet.add(it.next());
-
         }
         return keySet;
     }
 
     @Override
     public Collection values() {
-        return null;
+        var temp = new ArrayList<V>();
+        for (var entry : map) {
+            if(entry==null)
+                continue;
+            temp.add(entry.value);
+        }
+        return temp;
     }
 
     @Override
     public Set<Entry> entrySet() {
-
         var temp = new HashSet<Entry>();
         for (var entry : map) {
             if(entry==null)
