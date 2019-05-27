@@ -1,4 +1,4 @@
-##Deadline: June 4 2019
+## Deadline: June 4 2019
 
 
 Implement a study scheduling application in which procedures for treatment of patients performed by doctors are planned. The data is modelled via domain objects.
@@ -10,7 +10,7 @@ The application provides an interface for the following operations:
 - Updating status of procedure
 
 
-##Domain objects:
+## Domain objects:
 - Patient
 	* Id (mandatory)
 	* Name (mandatory)
@@ -31,9 +31,9 @@ The application provides an interface for the following operations:
 	* Name (mandatory)
 
 
-##Technologies: Spring-Boot (**spring data jpa, spring web**)
+## Technologies: Spring-Boot (**spring data jpa, spring web**)
 
 
-##Useful links:
+## Useful links:
 - http://spring-projects.ru/guides/rest-service/
 - https://spring.io/guides/gs/accessing-data-jpa/
