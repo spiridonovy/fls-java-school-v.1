@@ -9,5 +9,8 @@ import java.util.ArrayList;
 public interface IPatientRepository extends CrudRepository<Patient,Integer> {
 
     Patient findById (int id);
-   ArrayList<Patient> findByName(String name);
+
+    ArrayList<Patient> findAll();
+
+    ArrayList<Patient> findByName(String name);
 }

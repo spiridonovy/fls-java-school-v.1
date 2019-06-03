@@ -5,13 +5,17 @@ import org.springframework.data.repository.CrudRepository;
 
 import java.util.ArrayList;
 
-public interface IProcedureRepository extends CrudRepository<Procedure,Integer> {
+public interface IProcedureRepository extends CrudRepository<Procedure, Integer> {
 
-    Procedure findById (int id);
+    Procedure findById(int id);
 
-   ArrayList<Procedure> findByPatient(int patient);
+    ArrayList<Procedure> findAll();
 
-   ArrayList<Procedure> findByDoctor(int doctor);
+    ArrayList<Procedure> findByPatient(int patient);
 
-   ArrayList<Procedure> findByRoom(int room);
+    ArrayList<Procedure> findByDoctor(int doctor);
+
+    ArrayList<Procedure> findByRoom(int room);
 }
+
+

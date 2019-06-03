@@ -28,6 +28,14 @@ public class DoctorController {
         return doctor;
     }
 
+    @GetMapping("/doctor/findAll")
+    @ResponseBody
+    public ArrayList<Doctor> FindAll() {
+        var doctor = doctorRepository.findAll();
+        if (doctor == null || doctor.isEmpty()) throw new NoContentException();
+        return doctor;
+    }
+
     @PostMapping("/doctor")
     @ResponseBody
     public Doctor Create(@RequestBody() String name) {

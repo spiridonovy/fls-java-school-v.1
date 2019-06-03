@@ -26,6 +26,14 @@ public class PatientController {
         return patient;
     }
 
+    @GetMapping("/patient/findAll")
+    @ResponseBody
+    public ArrayList<Patient> FindAll() {
+        var patient = patientRepository.findAll();
+        if (patient == null || patient.isEmpty()) throw new NoContentException();
+        return patient;
+    }
+
     @PostMapping("/patient")
     @ResponseBody
     public Patient Create(@RequestBody() PatientRequest request) {

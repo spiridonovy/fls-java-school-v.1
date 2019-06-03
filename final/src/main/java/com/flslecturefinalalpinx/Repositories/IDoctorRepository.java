@@ -13,5 +13,7 @@ public interface IDoctorRepository extends CrudRepository<Doctor,Integer> {
 
     Doctor findById (int id);
 
+    ArrayList<Doctor> findAll();
+
     ArrayList<Doctor> findByName(String name);
 }

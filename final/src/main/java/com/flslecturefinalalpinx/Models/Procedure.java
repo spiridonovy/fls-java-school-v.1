@@ -2,6 +2,7 @@ package com.flslecturefinalalpinx.Models;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.sql.Time;
 
 
 @Entity
@@ -12,19 +13,21 @@ public class Procedure {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    public int patient;
+    private int patient;
 
-    public String description;
+    private String description;
 
-    public int status;
+    private int status;
 
-    public Date starttime;
+    private Time starttime;
 
-    public Date endtime;
+    private Time endtime;
 
-    public int doctor;
+    private Date date;
 
-    public int room;
+    private int doctor;
+
+    private int room;
 
     public Procedure() {
     }
@@ -33,18 +36,19 @@ public class Procedure {
             int patient,
             String description,
             int status,
-            Date starttime,
-            Date endtime,
+            Time starttime,
+            Time endtime,
+            Date date,
             int doctor,
-            int room)
-    {
+            int room) {
         this.patient = patient;
         this.description = description;
         this.status = status;
-        this.starttime=starttime;
-        this.endtime=endtime;
-        this.doctor=doctor;
-        this.room=room;
+        this.starttime = starttime;
+        this.endtime = endtime;
+        this.date = date;
+        this.doctor = doctor;
+        this.room = room;
     }
 
     public int getId() {
@@ -52,4 +56,67 @@ public class Procedure {
     }
 
 
+    public int getPatient() {
+        return patient;
+    }
+
+    public void setPatient(int patient) {
+        this.patient = patient;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
+
+    public Time getStarttime() {
+        return starttime;
+    }
+
+    public void setStarttime(Time starttime) {
+        this.starttime = starttime;
+    }
+
+    public Time getEndtime() {
+        return endtime;
+    }
+
+    public void setEndtime(Time endtime) {
+        this.endtime = endtime;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public int getDoctor() {
+        return doctor;
+    }
+
+    public void setDoctor(int doctor) {
+        this.doctor = doctor;
+    }
+
+    public int getRoom() {
+        return room;
+    }
+
+    public void setRoom(int room) {
+        this.room = room;
+    }
 }

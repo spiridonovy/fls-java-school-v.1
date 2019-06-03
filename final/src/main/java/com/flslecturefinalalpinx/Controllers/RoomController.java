@@ -21,26 +21,32 @@ public class RoomController {
 
     @GetMapping("/room/{id}")
     @ResponseBody
-    public Room FindById(@PathVariable int id)
-    {
+    public Room FindById(@PathVariable int id) {
         var room = roomRepository.findById(id);
         if (room == null) throw new NoContentException();
         return room;
     }
 
+    @GetMapping("/room/findAll")
+    @ResponseBody
+    public ArrayList<Room> FindAll() {
+        var room = roomRepository.findAll();
+        if (room == null || room.isEmpty()) throw new NoContentException();
+        return room;
+    }
+
+
     @PostMapping("/room")
     @ResponseBody
-    public Room Create(@RequestBody() String name)
-    {
+    public Room Create(@RequestBody() String name) {
         return roomRepository.save(new Room(name));
     }
 
     @GetMapping("/room")
     @ResponseBody
-    public ArrayList<Room> FindByName(@RequestParam(name = "name") String name)
-    {
+    public ArrayList<Room> FindByName(@RequestParam(name = "name") String name) {
         var room = roomRepository.findByName(name);
-        if (room == null||room.isEmpty()) throw new NoContentException();
+        if (room == null || room.isEmpty()) throw new NoContentException();
         return room;
     }
 }

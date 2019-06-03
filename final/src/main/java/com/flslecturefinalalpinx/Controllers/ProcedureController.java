@@ -8,6 +8,7 @@ import com.flslecturefinalalpinx.Repositories.IPatientRepository;
 import com.flslecturefinalalpinx.Repositories.IProcedureRepository;
 import com.flslecturefinalalpinx.Repositories.IRoomRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -44,6 +45,7 @@ public class ProcedureController {
                         request.status,
                         request.starttime,
                         request.endtime,
+                        request.date,
                         request.doctor,
                         request.room));
     }
@@ -52,14 +54,15 @@ public class ProcedureController {
     @ResponseBody
     public Procedure Update(@PathVariable int id, @RequestBody() ProcedureRequest request) {
         var procedure = procedureRepository.findById(id);
-        //request.patient.or().ifPresent();
-        if (request.patient != null) procedure.patient = request.patient;
-        if (request.description != null) procedure.description = request.description;
-        if (request.status != null) procedure.status = request.status;
-        if (request.starttime != null) procedure.starttime = request.starttime;
-        if (request.endtime != null) procedure.endtime = request.endtime;
-        if (request.doctor != null) procedure.doctor = request.doctor;
-        if (request.room != null) procedure.room = request.room;
+
+        if (request.patient != null) procedure.setPatient(request.patient);
+        if (request.description != null) procedure.setDescription(request.description);
+        if (request.status != null) procedure.setStatus(request.status);
+        if (request.starttime != null) procedure.setStarttime(request.starttime);
+        if (request.endtime != null) procedure.setEndtime(request.endtime);
+        if (request.date != null) procedure.setDate(request.date);
+        if (request.doctor != null) procedure.setDoctor(request.doctor);
+        if (request.room != null) procedure.setRoom(request.room);
 
         return procedureRepository.save(procedure);
     }
@@ -71,6 +74,14 @@ public class ProcedureController {
         if (procedure == null) {
             throw new NoContentException();
         }
+        return procedure;
+    }
+
+    @GetMapping("/procedure/findAll")
+    @ResponseBody
+    public ArrayList<Procedure> FindAll() {
+        var procedure = procedureRepository.findAll();
+        if (procedure == null || procedure.isEmpty()) throw new NoContentException();
         return procedure;
     }
 
@@ -108,5 +119,16 @@ public class ProcedureController {
             procedures.addAll(procedureRepository.findByRoom(room.getId()));
         }
         return procedures;
+    }
+
+    @DeleteMapping("/procedure/{id}")
+    @ResponseBody
+    public HttpStatus Delete(@PathVariable Integer id) {
+        var procedure = procedureRepository.findById(id);
+        if (procedure.isEmpty()) {
+            throw new NoContentException();
+        }
+        procedureRepository.deleteById(procedure.get().getId());
+        return HttpStatus.OK;
     }
 }

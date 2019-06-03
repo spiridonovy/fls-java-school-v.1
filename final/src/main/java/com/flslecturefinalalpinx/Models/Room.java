@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 
 @Entity
-@Table(name = "room",schema = "public")
+@Table(name = "room", schema = "public")
 public class Room {
 
     @Id
@@ -13,9 +13,10 @@ public class Room {
 
     private String name;
 
-    public Room(){}
+    public Room() {
+    }
 
-    public Room(String name){
+    public Room(String name) {
         this.name = name;
     }
 

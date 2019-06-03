@@ -1,6 +1,7 @@
 package com.flslecturefinalalpinx.Models.Requests;
 
 import java.sql.Date;
+import java.sql.Time;
 
 
 public class ProcedureRequest {
@@ -11,9 +12,11 @@ public class ProcedureRequest {
 
     public Integer status;
 
-    public Date starttime;
+    public Time starttime;
 
-    public Date endtime;
+    public Time endtime;
+
+    public Date date;
 
     public Integer doctor;
 

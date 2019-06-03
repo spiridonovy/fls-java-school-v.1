@@ -5,8 +5,11 @@ import org.springframework.data.repository.CrudRepository;
 
 import java.util.ArrayList;
 
-public interface IRoomRepository extends CrudRepository<Room,Integer> {
+public interface IRoomRepository extends CrudRepository<Room, Integer> {
 
-    Room findById (int id);
-   ArrayList<Room> findByName(String name);
+    Room findById(int id);
+
+    ArrayList<Room> findAll();
+
+    ArrayList<Room> findByName(String name);
 }
